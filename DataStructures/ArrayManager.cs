@@ -36,7 +36,7 @@ namespace DataStructures
 
         public T[] Append(T[] array, T value)
         {
-            if (value == null)
+            if (array == null)
                 throw new ArgumentNullException("Argument cannot be null.");
 
             array = Increase(array);
