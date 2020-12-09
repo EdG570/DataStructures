@@ -47,6 +47,9 @@ namespace DataStructures
 
         public int[] Shift(int[] array, int index)
         {
+            if (array == null)
+                throw new ArgumentNullException("Argument cannot be null.");
+
             for (var i = index; i < array.Length - 1; i++)
             {
                 array[i] = array[i + 1];

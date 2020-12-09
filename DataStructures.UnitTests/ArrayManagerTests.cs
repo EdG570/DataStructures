@@ -128,5 +128,33 @@ namespace DataStructures.UnitTests
             // Assert
             Assert.Equal(value, result[result.Length - 1]);
         }
+
+        [Fact]
+        public void Shift_ShouldShiftElementsOfArrayDownByOneIndex_WhenValidArrayAndIndexArgsExist()
+        {
+            // Arrange
+            var arrayManager = new ArrayManager();
+            var testArray = new int[] { 1, 3, 5, 7 };
+            var testVal = testArray[2];
+            var testIndex = 1;
+
+            // Act
+            var result = arrayManager.Shift(testArray, testIndex);
+
+            // Assert
+            Assert.Equal(testVal, result[testIndex]);
+        }
+
+        [Fact]
+        public void Shift_ShouldThrowArgNullException_WhenNullArrayArgPassed()
+        {
+            // Arrange
+            var arrayManager = new ArrayManager();
+            var testArray = (int[])null;
+            var testValue = 4;
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => arrayManager.Shift(testArray, testValue));
+        }
     }
 }
