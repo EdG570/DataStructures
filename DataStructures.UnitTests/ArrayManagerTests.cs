@@ -15,7 +15,7 @@ namespace DataStructures.UnitTests
         public void Create_ShouldReturnArrayOfArgumentLength_WhenValidLengthIsPassed(int length)
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
 
             // Act
             var result = arrayManager.Create(length);
@@ -31,7 +31,7 @@ namespace DataStructures.UnitTests
         public void Create_ShouldThrowArgumentOutOfRangeException_WhenInvalidLengthArgPassed(int length)
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => arrayManager.Create(length));
@@ -41,7 +41,7 @@ namespace DataStructures.UnitTests
         public void Increase_ShouldIncreaseLengthByOne_WhenValidArrayArgPassed()
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
             var testArray = new int[] { 1, 2, 3 };
 
             // Act
@@ -55,7 +55,7 @@ namespace DataStructures.UnitTests
         public void Increase_ShouldThrowArgNullException_WhenArgIsNull()
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
             var testArray = (int[])null;
 
             // Assert
@@ -66,7 +66,7 @@ namespace DataStructures.UnitTests
         public void Decrease_ShouldDecreaseLengthByOne_WhenValidArrayArgPassed()
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
             var testArray = new int[] { 1, 2, 3 };
 
             // Act
@@ -80,7 +80,7 @@ namespace DataStructures.UnitTests
         public void Decrease_ShouldThrowArgNullException_WhenArgIsNull()
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
             var testArray = (int[])null;
 
             // Assert
@@ -91,7 +91,7 @@ namespace DataStructures.UnitTests
         public void Append_ShouldThrowArgNullException_WhenArrayArgIsNull()
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
             var testArray = (int[])null;
             var value = 3;
 
@@ -103,7 +103,7 @@ namespace DataStructures.UnitTests
         public void Append_ShouldIncreaseArrayLengthByOne_WhenValidArgsPassed()
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
             var testArray = new int[] { 1, 2, 3 };
             var value = 7;
 
@@ -118,7 +118,7 @@ namespace DataStructures.UnitTests
         public void Append_ShouldAddValueToEndOfArray_WhenValidArgsPassed()
         {
             // Arrange
-            var arrayManager = new ArrayManager<int>();
+            var arrayManager = new ArrayManager();
             var testArray = new int[] { 1, 2, 3 };
             var value = 7;
 

@@ -4,17 +4,17 @@ using System.Text;
 
 namespace DataStructures
 {
-    public class ArrayManager<T>
+    public class ArrayManager
     {
-        public T[] Create(int length)
+        public int[] Create(int length)
         {
             if (length < 0)
                 throw new ArgumentOutOfRangeException("Length must be greater than or equal to zero");
 
-            return new T[length];
+            return new int[length];
         }
 
-        public T[] Increase(T[] array)
+        public int[] Increase(int[] array)
         {
             if (array == null)
                 throw new ArgumentNullException("Argument cannot be null");
@@ -24,7 +24,7 @@ namespace DataStructures
             return array;
         }
 
-        public T[] Decrease(T[] array)
+        public int[] Decrease(int[] array)
         {
             if (array == null)
                 throw new ArgumentNullException("Argument cannot be null");
@@ -34,13 +34,43 @@ namespace DataStructures
             return array;
         }
 
-        public T[] Append(T[] array, T value)
+        public int[] Append(int[] array, int value)
         {
             if (array == null)
                 throw new ArgumentNullException("Argument cannot be null.");
 
             array = Increase(array);
             array[array.Length - 1] = value;
+
+            return array;
+        }
+
+        public int[] Shift(int[] array, int index)
+        {
+            for (var i = index; i < array.Length - 1; i++)
+            {
+                array[i] = array[i + 1];
+            }
+
+            return array;
+        }
+
+        public int[] Remove(int[] array, int value)
+        {
+            if (array == null)
+                throw new ArgumentNullException("Argument cannot be null.");
+
+            if (array.Length == 0)
+                return array;
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                if (array[i] == value)
+                {
+                    array = Shift(array, i);
+                    array = Decrease(array);
+                }
+            }
 
             return array;
         }
